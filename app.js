@@ -51,6 +51,27 @@ app.use(cookieParser())
 app.use(expressValidator())
 app.use(cors())
 
+// Extended: https://swagger.io/specification/#infoObject
+
+const swaggerOptions = {
+    swaggerDefinition: {
+        openapi: '3.0.0',
+        info: {
+            version: '1.0.0',
+            title: 'Presupuesto Honorarios Médicos API',
+            description: 'API BackEnd para sistema de presupuesto de honorarios médicos',
+            contact: {
+                name: 'Manuel Oyanedel Cid'
+            },
+            server: 'http://localhost:8001'
+        }
+    },
+    // definition for apis witch swagger
+    apis: ['./routes/*.js']
+}
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions)
+app.use('/api-docs', swaggerExpressUi.serve, swaggerExpressUi.setup(swaggerDocs))
 // routes middlewares
 app.use("/api", authRoutes)
 app.use("/api", usuarioRoutes)

@@ -60,7 +60,7 @@ exports.remove = (req, res) => {
 }
 
 exports.list = (req, res) => { 
-    Equipo.find().exec((err, data) => {
+    Equipo.find().populate("labores prestacion").exec((err, data) => {
         if(err) {
             return res.status(400).json({
                 error: errorHandler(err)
