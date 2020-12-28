@@ -22,7 +22,7 @@ npm i
 _3. crear archivo .env en carpeta, editar y agregar los siguientes parámetros_
 
 ```
-      DATABASE=mongodb://localhost/presupuestohm
-      PORT=8001
-      JWT_SECRET=AQ1lo9.,-!!
+DATABASE=mongodb://localhost/presupuestohm
+PORT=8001
+JWT_SECRET=AQ1lo9.,-!!
 ```
